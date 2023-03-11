@@ -57,7 +57,7 @@ video {
 }
 .timeBar {
   flex: 5;
-  width: =100%;
+  width: 100%;
 }
 .fa-play::before {
   color: #00ff00;

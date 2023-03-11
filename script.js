@@ -5,6 +5,7 @@ const timerShow = document.getElementById("timer");
 const totalTime = Number(video.duration);
 
 timeBar.max = totalTime;
+timeBar.style.width = "100%";
 
 function play_pause() {
   video.style.opacity = 1;
