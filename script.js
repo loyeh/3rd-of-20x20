@@ -1,8 +1,10 @@
 const video = document.querySelector("video");
+const myVideo = document.querySelector("#myVideo");
 const play = document.getElementById("play");
 const timeBar = document.querySelector('input[type="range"]');
 const timerShow = document.getElementById("timer");
 const totalTime = Number(video.duration);
+const root = document.documentElement;
 
 timeBar.max = totalTime;
 
@@ -25,6 +27,13 @@ function stop() {
   video.currentTime = 0;
 }
 video.addEventListener("timeupdate", timer);
+window.addEventListener("resize", fontSize);
+window.addEventListener("load", fontSize);
+
+function fontSize() {
+  let fontSize = video.clientHeight + "px";
+  root.style.setProperty("--fontSize", fontSize);
+}
 
 function timer() {
   const currentTime = Number(video.currentTime);
