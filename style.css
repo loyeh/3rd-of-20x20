@@ -5,7 +5,9 @@
   margin: 0%;
   padding: 0%;
 }
-
+:root {
+  --fontSize: 1px;
+}
 body {
   display: flex;
   height: 100vh;
@@ -17,14 +19,10 @@ body {
   background-color: black;
   position: relative;
   object-fit: fill;
-  /* border: 2px solid red; */
 }
 video {
-  /* position: absolute; */
   max-width: 100%;
   object-fit: fill;
-
-  /* border: 2px solid blue; */
   background-color: black;
   position: relative;
   opacity: 0.2;
@@ -33,7 +31,7 @@ video {
 .fa-circle-play::before {
   position: absolute;
   color: #ffffff5d;
-  font-size: clamp(50px, 40vw, 300px);
+  font-size: var(--fontSize);
   left: 50%;
   translate: -50% 0;
 }
