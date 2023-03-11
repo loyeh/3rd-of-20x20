@@ -16,11 +16,14 @@ body {
 .myVideo {
   background-color: black;
   position: relative;
+  object-fit: fill;
   /* border: 2px solid red; */
 }
 video {
   /* position: absolute; */
   max-width: 100%;
+  object-fit: fill;
+
   /* border: 2px solid blue; */
   background-color: black;
   position: relative;
