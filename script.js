@@ -1,8 +1,10 @@
 const video = document.querySelector("video");
 const play = document.getElementById("play");
-
-const timeBar = document.getElementById("timeBar").firstChild.nextSibling;
+const timeBar = document.querySelector('input[type="range"]');
 const timerShow = document.getElementById("timer");
+const totalTime = Number(video.duration);
+
+timeBar.max = totalTime;
 
 function play_pause() {
   video.style.opacity = 1;
@@ -25,10 +27,8 @@ function stop() {
 video.addEventListener("timeupdate", timer);
 
 function timer() {
-  const timeBarLength = document.getElementById("timeBar").clientWidth;
-  const currentTime = video.currentTime;
-  const totalTime = video.duration;
-
+  const currentTime = Number(video.currentTime);
+  timeBar.value = currentTime;
   const minutes = Math.floor(currentTime / 60)
     .toString()
     .padStart(2, "0");
@@ -36,9 +36,14 @@ function timer() {
     .toString()
     .padStart(2, "0");
 
-  const currentTimeBarLength = timeBarLength * (currentTime / totalTime);
-  console.log(currentTimeBarLength);
-
   timerShow.innerText = minutes + " : " + seconds;
-  timeBar.style.width = `${currentTimeBarLength}px`;
 }
+
+timeBar.addEventListener("input", function () {
+  video.currentTime = timeBar.value;
+  if (timeBar.value !== timeBar.min) {
+    video.style.opacity = 1;
+  } else {
+    video.style.opacity = 0.2;
+  }
+});
