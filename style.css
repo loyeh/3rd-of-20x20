@@ -87,6 +87,7 @@ input[type="range"]:focus {
 }
 
 input[type="range"]::-webkit-slider-thumb {
+  width: 100%;
   box-shadow: 1px 1px 1px #000000;
   border: none;
   height: 20px;
@@ -98,7 +99,7 @@ input[type="range"]::-webkit-slider-thumb {
   /* margin-top: -11px; */
 }
 input[type="range"]:focus::-webkit-slider-runnable-track {
-  background: #3071a9;
+  /* background: #3071a9; */
 }
 input[type="range"]::-moz-range-track {
   width: 100%;
